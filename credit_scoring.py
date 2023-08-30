@@ -59,3 +59,50 @@ features
 
 """Above is the data after preprocessing."""
 
+target
+
+knn = KNeighborsClassifier(n_neighbors= 5)
+
+"""setting the number of neighbors for KNN classification  """
+
+from sklearn.model_selection import train_test_split
+
+"""importing sklearn.model_selection to split the data into **`80/20`** (train/test) ratio"""
+
+xtrain, xtest, ytrain, ytest = train_test_split(features, target, test_size = 0.2, random_state = 1)
+
+"""**`------------------First(KNN)--------------------------------`**"""
+
+knn.fit(xtrain, ytrain)
+
+"""Training of the model"""
+
+ypred = knn.predict(xtest)
+
+"""Predictions are stored in `ypred` and the array is displayed below\."""
+
+ypred
+
+ytest
+
+"""**Below is the accuracy of the model.**  """
+
+accuracy = np.mean(ypred == ytest)
+
+accuracy
+
+"""**Conclusion:**
+
+
+1.   KNN classification accuracy is `96.6%`
+2.   Accuracy > 90% = model can be used in production
+
+
+"""
+
+score  = knn.score(xtest, ytest)
+
+score
+
+"""score = `96.6%`
+
