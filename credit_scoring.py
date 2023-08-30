@@ -153,3 +153,29 @@ lr_pred = lr_model.predict(xtest)
 lr_model.score(xtest, ytest)
 
 """Model accuracy = 98.5 %
+
+**`------------------Final Predictions --------------------------------`**
+
+All model predictions:
+
+
+1.   KNN = `96.6%`
+2.   Decision tree = `99.2%`
+3.   Logistic Regression =` 98.5%`
+
+So we will use DT for final prediction
+"""
+
+# Load the data
+f_test = pd.read_csv('/content/drive/MyDrive/Credit_Score_ds/data_test.csv')
+drop_columns  = ['Score_level', 'Score_class', 'Score_point', 'Changed_phone_number', 'INPS_mln_sum', 'label' ]
+f = f_test.drop(drop_columns, axis=1)
+
+f.head()
+
+"""External file imported to predict output"""
+
+final = model.predict(f)
+final
+
+"""`Final output`"""
