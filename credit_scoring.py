@@ -134,3 +134,22 @@ accuracy_DT
 model.score(xtest, ytest)
 
 """Score accuracy  = `99.2%`
+
+**`------------------Third--------------------------------`**
+"""
+
+#imported LR (logistic regression)
+from sklearn.linear_model import LogisticRegression
+
+"""model imported"""
+
+lr_model = LogisticRegression()
+lr_model.fit(xtrain, ytrain)
+
+lr_pred = lr_model.predict(xtest)
+
+"""predictions made for the model"""
+
+lr_model.score(xtest, ytest)
+
+"""Model accuracy = 98.5 %
