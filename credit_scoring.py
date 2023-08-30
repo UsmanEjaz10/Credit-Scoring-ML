@@ -106,3 +106,31 @@ score
 
 """score = `96.6%`
 
+**`------------------Second--------------------------------`**
+
+Now lets focus on second algo = Decision Tree
+"""
+
+#predict using Decision Tree
+from sklearn.tree import DecisionTreeClassifier
+
+"""importing decision tree
+
+"""
+
+model = DecisionTreeClassifier()
+model.fit(xtrain, ytrain)
+
+"""Training the model"""
+
+answer = model.predict(xtest)
+answer
+
+"""Predicted the `label` for testing data"""
+
+accuracy_DT = np.mean(answer == ytest)
+accuracy_DT
+
+model.score(xtest, ytest)
+
+"""Score accuracy  = `99.2%`
