@@ -17,3 +17,45 @@ drive.mount('/content/drive/')
 import numpy as np
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
+
+
+
+# Load the train data
+train_data = pd.read_csv('/content/drive/MyDrive/Credit_Score_ds/data_train.csv')
+
+train_data
+
+"""Imported data (train_data) from drive. **Here the label 0 represents people who are unable to pay their credits whereas label = 1 represents people who pay their credits**.  """
+
+drop_columns  = ['Score_level', 'Score_class', 'Score_point', 'Changed_phone_number', 'INPS_mln_sum', 'label' ]
+features = train_data.drop(drop_columns, axis=1)
+features.head()
+
+"""drop_columns variable contains irregular columns (not required) and the `label column which is fitted into the target variable below `"""
+
+target = train_data['label']
+target.head()
+
+"""**Preprocessing of the data**"""
+
+from sklearn.preprocessing import MinMaxScaler
+
+scaler = MinMaxScaler()
+
+"""We have used MinMaxScaler() to scale the features in a dataset to a common range (0-1).
+Benifits:
+
+
+1.   Data is interpretable
+2.   Data is formed into compatible format
+
+
+
+"""
+
+features = scaler.fit_transform(features)
+
+features
+
+"""Above is the data after preprocessing."""
+
